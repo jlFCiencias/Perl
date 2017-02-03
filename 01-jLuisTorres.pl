@@ -3,7 +3,10 @@
 use strict;
 use warnings;
  
-print "Definicion de pragma:\n\nUn pragma es un modulo de Perl que permite afectar de alguna forma el proceso de compilacion o de ejecucion de un programa, aplicando ciertas directivas o reglas contenidas en el mismo.\nUn pragma se incluye en un programa en Perl por medio del comando \"use\".\nUn ejemplo de pragma es \"strict\", el cual genera mensajes de error, por ejemplo cuando se detectan variables no inicializadas o referencias inexistentes.\n";
+print "Definicion de pragma:\n\n";
+print "Un pragma es un modulo de Perl que permite afectar de alguna forma el proceso de compilacion o de ejecucion de un programa, aplicando ciertas directivas o reglas contenidas en el mismo.\n";
+print "Un pragma se incluye en un programa en Perl por medio del comando \"use\".\n";
+print "Un ejemplo de pragma es \"strict\", el cual genera mensajes de error, por ejemplo cuando se detectan variables no inicializadas o referencias inexistentes.\n";
 
 __END__
 
