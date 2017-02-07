@@ -17,12 +17,12 @@ if ($#ARGV < 0)
 }
 
 # Intentamos abrir el archivo de entrada
-open(Fd, "<", $ARGV[0]) or die "ERROR: no se puede abrir el archivo de entrada\n";
+open(FD, "<", $ARGV[0]) or die "ERROR: no se puede abrir el archivo de entrada\n";
 # Intentamos abrir el archivo de salida
-open(FRes, ">", "resumen.txt") or die "ERROR: no se puede abrir el archivo de salida\n";
+open(FRES, ">", "resumen.txt") or die "ERROR: no se puede abrir el archivo de salida\n";
 
 # Si se pudo abrir procedemos a procesarlo
-while (<Fd>)
+while (<FD>)
 {
     chomp;
     # Revisamos primero si la linea contiene una URL, solo se consideran http, https y ftp
@@ -90,30 +90,31 @@ while (<Fd>)
 }
 
 # A continuacion mostramos los datos
-print FRes "URL's\n";
+print FRES "URL's\n";
 for (keys %urls)
 {
-    print FRes "$urls{$_} veces | ", $_, "\n";
+    print FRES "$urls{$_} veces | ", $_, "\n";
 }
 
-print FRes "Dominios\n";
+print FRES "Dominios\n";
 for (keys %domains)
 {
-    print FRes "$domains{$_} veces | ", $_, "\n";
+    print FRES "$domains{$_} veces | ", $_, "\n";
 }
 
-print FRes "IP's\n";
+print FRES "IP's\n";
 for (keys %ips)
 {
-    print FRes "$ips{$_} veces | ", $_, "\n";
+    print FRES "$ips{$_} veces | ", $_, "\n";
 }
-print FRes "Email's\n";
+print FRES "Email's\n";
 for (keys %emails)
 {
-    print FRes "$emails{$_} veces | ", $_, "\n";
+    print FRES "$emails{$_} veces | ", $_, "\n";
 }
 
-close(Fd);
+close(FD);
+close(FRES);
 
 __END__
 
