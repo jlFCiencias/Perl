@@ -16,8 +16,10 @@ if ($#ARGV < 0)
     exit(0);
 }
 
-# Intentamos abrir el archivo
-open(Fd, "<", $ARGV[0]) or die "ERROR: no se puede abrir el archivo\n";
+# Intentamos abrir el archivo de entrada
+open(Fd, "<", $ARGV[0]) or die "ERROR: no se puede abrir el archivo de entrada\n";
+# Intentamos abrir el archivo de salida
+open(FRes, ">", "resumen.txt") or die "ERROR: no se puede abrir el archivo de salida\n";
 
 # Si se pudo abrir procedemos a procesarlo
 while (<Fd>)
@@ -88,27 +90,27 @@ while (<Fd>)
 }
 
 # A continuacion mostramos los datos
-print "URL's\n";
+print FRes "URL's\n";
 for (keys %urls)
 {
-    say "$urls{$_} veces | ", $_;
+    print FRes "$urls{$_} veces | ", $_, "\n";
 }
 
-print "Dominios\n";
+print FRes "Dominios\n";
 for (keys %domains)
 {
-    say "$domains{$_} veces | ", $_;
+    print FRes "$domains{$_} veces | ", $_, "\n";
 }
 
-print "IP's\n";
+print FRes "IP's\n";
 for (keys %ips)
 {
-    say "$ips{$_} veces | ", $_;
+    print FRes "$ips{$_} veces | ", $_, "\n";
 }
-print "Email's\n";
+print FRes "Email's\n";
 for (keys %emails)
 {
-    say "$emails{$_} veces | ", $_;
+    print FRes "$emails{$_} veces | ", $_, "\n";
 }
 
 close(Fd);
@@ -125,7 +127,7 @@ El programa busca en un archivo de texto URL's, dominios, email's y direcciones 
 
 Para las URL's solamente se consideran http, https y ftp.
 
-Genera un resumen de los datos encontrados, mostrando la frecuencia de cada uno.
+Genera un resumen de los datos encontrados en un archivo de nombre resumen.txt, mostrando la frecuencia de cada uno.
 
 El programa valida que se haya incluido el nombre del archivo a procesar y que el mismo pueda abrirse para lectura.
 
@@ -135,7 +137,7 @@ Recibe como parametro el nombre del archivo a procesar.
 
 =head2 VALORES DEVUELTOS
 
-Muestra un resumen de los datos encontrados, asi como su frecuencia.
+Genera un resumen de los datos encontrados en un archivo de nombre resumen.txt.
 
 =head2 EJECUCION
 
