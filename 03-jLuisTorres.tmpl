@@ -1,0 +1,34 @@
+<tmpl_loop name=usuarios>
+   <div>
+    <fieldset style="width:500px">
+       <legend><b>Usuario: </b><span style="color:red; font-weight: bold"><tmpl_var name="user"></span></legend>
+       <table style="text-align: left;">
+		<tr>	
+			<th><b>Password:</b></th>
+			<th style="color:blue"><tmpl_var name="pass"></th>
+		</tr>
+		<tr>	
+			<th><b>UID:</b></th>
+			<th style="color:blue"><tmpl_var name="uid"></th>
+		</tr>
+		<tr>	
+			<th><b>GID:</b></th>
+			<th style="color:blue"><tmpl_var name="gid"></th>
+		</tr>
+		<tr>	
+			<th><b>Gecos:</b></th>
+			<th style="color:blue"><tmpl_var name="desc"></th>
+		</tr>
+		<tr>	
+			<th><b>Home:</b></th>
+			<th style="color:blue"><tmpl_var name="home"></th>
+		</tr>
+		<tr>	
+			<th><b>Shell:</b></th>
+			<th style="color:blue"><tmpl_var name="shell"></th>
+		</tr>
+       </table>
+    </fieldset>
+   </div>
+   </br>
+</tmpl_loop>
